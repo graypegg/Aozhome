@@ -1,0 +1,61 @@
+<%= form_with(model: thing) do |form| %>
+  <% if thing.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(thing.errors.count, "error") %> prohibited this thing from being saved:</h2>
+
+      <ul>
+        <% thing.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form__row">
+    <%= form.label :manufacturer_id, 'Manufacturer' %>
+    <%= form.select :manufacturer_id, all_manufacturers %>
+    <%= link_to 'New Manufacturer', new_manufacturer_path(redirect_back_to: request.path) %>
+  </div>
+
+  <div class="form__row">
+    <%= form.label :user_id, 'Owner' %>
+    <%= form.select :user_id, all_users %>
+    <%= link_to 'New Owner', new_user_path(redirect_back_to: request.path) %>
+  </div>
+
+  <div class="form__row">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="form__row">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="form__row">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div class="form__row">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+    <%= form.select :currency, ['NOK', 'CAD', 'EUR', 'USD', 'JPY'] %>
+  </div>
+
+  <div class="form__row">
+    <%= form.label :weight %>
+    <%= form.number_field :weight %>
+    g
+  </div>
+
+  <div class="form__row">
+    <%= form.label :purchase_date %>
+    <%= form.date_field :purchase_date %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
