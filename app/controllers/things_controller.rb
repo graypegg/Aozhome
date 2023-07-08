@@ -67,6 +67,6 @@ class ThingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def thing_params
-      params.require(:thing).permit(:manufacturer_id, :user_id, :name, :description, :quantity, :price, :currency, :weight, :purchase_date)
+      params.require(:thing).permit(:manufacturer_id, :user_id, :name, :description, :quantity, :price, :currency, :weight, :purchase_date, :image)
     end
 end
