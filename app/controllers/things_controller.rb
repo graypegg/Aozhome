@@ -13,6 +13,7 @@ class ThingsController < ApplicationController
   # GET /things/new
   def new
     @thing = Thing.new
+    @thing.purchase_date = Time.now - 1.day
     @manufacturers = Manufacturer.all
   end
 
@@ -66,6 +67,6 @@ class ThingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def thing_params
-      params.require(:thing).permit(:manufacturer_id, :user_id)
+      params.require(:thing).permit(:manufacturer_id, :user_id, :name, :description, :quantity, :price, :currency, :weight, :purchase_date)
     end
 end
