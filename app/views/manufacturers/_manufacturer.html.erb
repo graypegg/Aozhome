@@ -1,22 +1,10 @@
-<div id="<%= dom_id manufacturer %>">
-  <p>
-    <strong>Name:</strong>
-    <%= manufacturer.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= manufacturer.description %>
-  </p>
-
-  <p>
-    <strong>Website:</strong>
-    <%= manufacturer.website %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= manufacturer.email %>
-  </p>
-
+<div id="<%= dom_id manufacturer %>" class="entity">
+  <h2>
+    <%= link_to manufacturer.name, manufacturer %>
+    <small>made <%= pluralize manufacturer.things.count, 'thing' %></small>
+  </h2>
+  <div class="entity__action">
+    <%= button_to "Edit", edit_manufacturer_path(manufacturers_path), method: :get %>
+    <%= button_to "Delete", manufacturer, method: :delete %>
+  </div>
 </div>

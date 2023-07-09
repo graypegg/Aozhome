@@ -1,22 +1,10 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>First name:</strong>
-    <%= user.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= user.last_name %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= user.phone %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= user.email %>
-  </p>
-
+<div id="<%= dom_id user %>" class="entity">
+  <h2>
+    <%= link_to user.full_name, user %>
+    <small>owns <%= pluralize user.things.count, 'thing' %></small>
+  </h2>
+  <div class="entity__action">
+    <%= button_to "Edit", edit_user_path(user), method: :get %>
+    <%= button_to "Delete", user, method: :delete %>
+  </div>
 </div>

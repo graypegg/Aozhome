@@ -1,0 +1,15 @@
+.entity h2 {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+}
+
+.entity h2 small {
+    color: var(--text-muted);
+    font-weight: normal;
+    font-size: 0.7em;
+}
+
+.entity__action {
+    display: flex;
+}
