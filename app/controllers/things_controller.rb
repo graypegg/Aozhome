@@ -3,7 +3,7 @@ class ThingsController < ApplicationController
 
   # GET /things or /things.json
   def index
-    @things = Thing.all
+    @things = Thing.order created_at: :desc
   end
 
   # GET /things/1 or /things/1.json
