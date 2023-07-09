@@ -1,18 +1,28 @@
-<div id="<%= dom_id thing %>">
-  <h2>
-    <%= pluralize thing.quantity, thing.name %>
-  </h2>
-  <div>
-    <%= thing.description %>
-    <%= image_tag thing.image %>
+<div id="<%= dom_id thing %>" class="thing">
+  <div class="thing__title">
+    <h2>
+      <%= link_to thing do %>
+        <%= pluralize thing.quantity, thing.name %>
+      <% end %>
+    </h2>
+    <p>
+      <%= thing.description %>
+    </p>
   </div>
-  <div>
-    <%= thing.price %> <%= thing.currency %>
+  <div class="thing__image">
+    <%= link_to thing.image, target: '_blank' do %>
+      <%= image_tag thing.image %>
+    <% end %>
   </div>
-  <div>
-    <%= thing.weight %>g
-  </div>
-  <div>
-    Purchased <%= time_tag thing.purchase_date, time_ago_in_words(thing.purchase_date) %> ago
+  <div class="thing__data">
+    <div>
+      <%= thing.price %> <%= thing.currency %>
+    </div>
+    <div>
+      <%= thing.weight %>g
+    </div>
+    <div>
+      Purchased <%= time_tag thing.purchase_date, time_ago_in_words(thing.purchase_date) %> ago
+    </div>
   </div>
 </div>
